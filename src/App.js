@@ -6,6 +6,8 @@
  import './App.css'
 
 const App = () => {
+  const activeMenu = false;
+
   return (
     <div>
       <BrowserRouter>
@@ -18,10 +20,23 @@ const App = () => {
 
             </TooltipComponent>
           </div>
+          {activeMenu ? (
+            <div className='w-72 fixed sidebar dark:bg-secondary-dark-bg bg-white'>
+              Sidebar
+            </div>
+          ) : (
+            <div className='dark:bg-secondary-dark-bg'>
+              Sidebar
+            </div>
+          )}
+          <div className={ `dark:bg-main-bg bg-main-bg min-h-screen md:ml-72 w-full ${activeMenu ? 'md:ml-72' : 'flex'}`}
+            >
+          </div>
+
         </div>
       </BrowserRouter>
     </div>
-  )
-}
+  );
+};
 
 export default App
